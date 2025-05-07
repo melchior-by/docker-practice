@@ -1,0 +1,19 @@
+name: Manual Container Test
+
+on:
+  workflow_dispatch:  # ✅ Enables manual trigger
+
+jobs:
+  test:
+    name: 🧪 Run test_image.sh
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🔧 Make script executable
+        run: chmod +x ./test_image.sh
+
+      - name: 🧪 Run test_image.sh
+        run: ./test_image.sh
